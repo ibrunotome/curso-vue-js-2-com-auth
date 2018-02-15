@@ -7,7 +7,6 @@ Vue.use(Vuex);
 Vue.use(VueResource);
 
 const state = {
-    view: 'tabela',
     times: []
 };
 
@@ -21,15 +20,6 @@ const mutations = {
             state.times[index] = time;
         }
     },
-    'show-time-list'(state) {
-        state.view = 'tabela';
-    },
-    'show-time-novojogo'(state) {
-        state.view = 'novoJogo';
-    },
-    'show-time-zona'(state) {
-        state.view = 'zona';
-    }
 };
 
 const actions = {

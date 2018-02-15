@@ -3,63 +3,16 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>Campeonato brasileiro série A - 2016</h3>
-                <span v-if="view !== 'novoJogo'">
-                    <a href="#"
-                       class="btn btn-primary"
-                       @click.prevent="showNovoJogo">Novo jogo</a>
-                </span>
-                <span v-if="view !== 'zona'">
-                   <a href="#"
-                      class="btn btn-primary"
-                      @click.prevent="showZona">Times zona</a>
-                </span>
-                <span v-if="view !== 'tabela'">
-                   <a href="#"
-                      class="btn btn-primary"
-                      @click.prevent="showTimeList">Tabela completa</a>
-                </span>
+                <a class="btn btn-primary">Novo jogo</a>
+                <a class="btn btn-primary">Times zona</a>
+                <a class="btn btn-primary">Tabela completa</a>
                 <br><br>
-                <div v-if="view === 'tabela'">
-                    <time-list></time-list>
-                </div>
-                <div v-if="view === 'novoJogo'">
-                    <time-jogo></time-jogo>
-                </div>
-                <div v-if="view === 'zona'">
-                    <time-zona></time-zona>
-                </div>
             </div>
         </div>
+        <router-view></router-view>
     </div>
 </template>
 
 <script type="text/javascript">
-    import TimeListComponent from './TimeList.vue';
-    import TimeJogoComponent from './TimeJogo.vue';
-    import TimeZonaComponent from './TimeZona.vue';
-    import store from '../store';
-
-    export default {
-        components: {
-            'time-list': TimeListComponent,
-            'time-jogo': TimeJogoComponent,
-            'time-zona': TimeZonaComponent,
-        },
-        methods: {
-            showNovoJogo() {
-                store.commit('show-time-novojogo')
-            },
-            showZona() {
-                store.commit('show-time-zona')
-            },
-            showTimeList() {
-                store.commit('show-time-list')
-            },
-        },
-        computed: {
-            view() {
-                return store.state.view;
-            }
-        },
-    };
+    export default {};
 </script>
