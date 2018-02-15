@@ -2,12 +2,17 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import {TimeModel} from './time-model';
 import JwtToken from './services/jwt-token';
-import {Time} from './services/resources';
+import {Time, User} from './services/resources';
+import SessionStorage from './services/session-storage';
 
 Vue.use(Vuex);
 
 const state = {
-    times: []
+    times: [],
+    auth: {
+        check: JwtToken.token != null,
+        user: SessionStorage.getObject('user')
+    }
 };
 
 const mutations = {
@@ -20,6 +25,13 @@ const mutations = {
             state.times[index] = time;
         }
     },
+    setUser(state, user) {
+        SessionStorage.setObject('user', user);
+        state.auth.user = user;
+    },
+    authenticated(state) {
+        state.auth.check = true;
+    },
 };
 
 const actions = {
@@ -29,8 +41,17 @@ const actions = {
             context.commit('set-times', times);
         });
     },
-    'login'(context, {email, password}) {
-        return JwtToken.accessToken(email, password);
+    login(context, {email, password}) {
+        return JwtToken.accessToken(email, password).then(response => {
+            context.commit('authenticated');
+            context.dispatch('getUser');
+            return response;
+        })
+    },
+    getUser(context) {
+        User.query().then(response => {
+            context.commit('setUser', response.data.user);
+        })
     }
 };
 

@@ -9,10 +9,10 @@ export class Jwt {
         return Vue.http.post('http://localhost:8000/api/login', {
             email,
             password
-        })
+        });
     }
 }
 
 const Time = Vue.resource('http://localhost:8000/api/times');
-
-export {Time};
+const User = Vue.resource('http://localhost:8000/api/user');
+export {Time, User};
