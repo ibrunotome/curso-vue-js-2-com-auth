@@ -34,9 +34,9 @@
 </template>
 
 <script type="text/javascript">
-    import TimeListComponent from './time-list.component';
-    import TimeJogoComponent from './time-jogo.component';
-    import TimeZonaComponent from './time-zona.component';
+    import TimeListComponent from './TimeList.vue';
+    import TimeJogoComponent from './TimeJogo.vue';
+    import TimeZonaComponent from './TimeZona.vue';
     import store from '../store';
 
     export default {
