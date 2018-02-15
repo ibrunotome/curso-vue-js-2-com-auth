@@ -32,6 +32,12 @@ const mutations = {
     authenticated(state) {
         state.auth.check = true;
     },
+    unauthenticted(state) {
+        state.auth.check = false;
+        state.auth.user = null;
+        SessionStorage.remove('user');
+        JwtToken.token = null
+    }
 };
 
 const actions = {

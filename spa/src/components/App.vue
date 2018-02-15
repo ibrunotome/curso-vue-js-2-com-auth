@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <div class="row" v-if="isAuth">
+        <div class="row"
+             v-if="isAuth">
             <div class="col-md-12">
                 <h3>Campeonato brasileiro série A - 2016</h3>
                 <h6>Olá {{ user.name }}</h6>
@@ -12,6 +13,9 @@
                 </router-link>
                 <router-link class="btn btn-primary"
                              :to="{name: 'time.zona'}">Ver zona
+                </router-link>
+                <router-link class="btn btn-primary"
+                             :to="{name: 'auth.logout'}">Logout
                 </router-link>
                 <br><br>
             </div>

@@ -2,6 +2,7 @@ import TimeListComponent from './components/TimeList.vue';
 import TimeJogoComponent from './components/TimeJogo.vue';
 import TimeZonaComponent from './components/TimeZona.vue';
 import LoginComponent from './components/Login.vue';
+import LogoutComponent from './components/Logout.vue';
 
 export default [
     {
@@ -9,6 +10,12 @@ export default [
         path: '/login',
         component: LoginComponent,
         meta: {auth: false}
+    },
+    {
+        name: 'auth.logout',
+        path: '/logout',
+        component: LogoutComponent,
+        meta: {auth: true}
     },
     {
         name: 'time.list',
