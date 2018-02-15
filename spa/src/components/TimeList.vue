@@ -57,6 +57,9 @@
             }
         },
         computed: {
+            times() {
+                return store.state.times;
+            },
             timesFiltered() {
                 let colecao = _.orderBy(this.times, this.order.keys, this.order.sort);
 
@@ -66,9 +69,6 @@
                     return item.nome.toLowerCase().indexOf(this.filter) >= 0
                 })
             },
-            times() {
-                return store.state.times;
-            }
         },
     };
 </script>

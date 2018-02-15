@@ -28,6 +28,9 @@
     import store from '../store';
 
     export default {
+        created() {
+            store.dispatch('load-times');
+        },
         computed: {
             isAuth() {
                 return store.state.auth.check;

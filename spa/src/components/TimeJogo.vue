@@ -68,7 +68,7 @@
                 timeCasa.fimJogo(timeAdversario, gols, golsAdversario);
                 store.commit('update', timeCasa);
                 store.commit('update', timeAdversario);
-                store.commit('show-time-list');
+                this.$router.push({name: 'time.list'});
             },
             initJogo(times) {
                 let indexCasa = Math.floor(Math.random() * 20);
