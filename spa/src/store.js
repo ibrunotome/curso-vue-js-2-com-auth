@@ -29,7 +29,7 @@ const actions = {
         });
     },
     'login'(context, {email, password}) {
-        JwtToken.accessToken(email, password);
+        return JwtToken.accessToken(email, password);
     }
 };
 
