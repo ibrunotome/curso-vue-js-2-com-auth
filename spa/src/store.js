@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {Time} from './time';
-import JwtToken from './services/jwt-token'
+import {TimeModel} from './time-model';
+import JwtToken from './services/jwt-token';
+import {Time} from './services/resources';
 
 Vue.use(Vuex);
 
@@ -23,8 +24,8 @@ const mutations = {
 
 const actions = {
     'load-times'(context) {
-        Vue.http.get('http://localhost:8000/api/times').then(response => {
-            let times = response.data.map(element => new Time(element.id, element.nome, element.escudo));
+        Time.query().then(response => {
+            let times = response.data.map(element => new TimeModel(element.id, element.nome, element.escudo));
             context.commit('set-times', times);
         });
     },

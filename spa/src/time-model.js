@@ -1,4 +1,4 @@
-export class Time {
+export class TimeModel {
   constructor(id, nome, escudo) {
     this.id = id;
     this.nome = nome;

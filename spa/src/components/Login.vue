@@ -6,7 +6,7 @@
                     <div class="panel-heading">Login</div>
                     <div class="panel-body">
                         <div class="alert alert-danger"
-                             v-if="error.error">{{error.message}}
+                             v-if="error.error">{{ error.message }}
                         </div>
                         <form class="form-horizontal"
                               @submit.prevent="login()"
@@ -80,7 +80,7 @@
                     if (responseError.status === 400) {
                         this.error.message = responseError.data.error;
                     } else {
-                        this.error.message = 'Login falhou!!';
+                        this.error.message = 'Login falhou!';
                     }
                 })
             }

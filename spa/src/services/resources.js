@@ -12,3 +12,7 @@ export class Jwt {
         })
     }
 }
+
+const Time = Vue.resource('http://localhost:8000/api/times');
+
+export {Time};
