@@ -28,6 +28,11 @@ const actions = {
             let times = response.data.map(element => new Time(element.id, element.nome, element.escudo));
             context.commit('set-times', times);
         });
+    },
+    'login'(context, {email, password}) {
+        Vue.http.post('http://localhost:8000/api/login', {email, password}).then((response) => {
+           console.log(response.data.token);
+        });
     }
 };
 
