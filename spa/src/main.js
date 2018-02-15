@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import './filters';
-import AppComponent from './components/app.component';
+import AppComponent from './components/App.vue';
 import store from './store';
 
 require('popper.js/dist/umd/popper');
