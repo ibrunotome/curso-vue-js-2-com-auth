@@ -1,10 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import VueResource from 'vue-resource';
 import {Time} from './time';
+import JwtToken from './services/jwt-token'
 
 Vue.use(Vuex);
-Vue.use(VueResource);
 
 const state = {
     times: []
@@ -30,10 +29,7 @@ const actions = {
         });
     },
     'login'(context, {email, password}) {
-        Vue.http.post('http://localhost:8000/api/login', {email, password}).then((response) => {
-           console.log(response.data.token);
-
-        });
+        JwtToken.accessToken(email, password);
     }
 };
 
