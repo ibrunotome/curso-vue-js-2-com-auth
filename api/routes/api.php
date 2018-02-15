@@ -18,5 +18,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::get('times', 'Api\TimesController@index');
+Route::group(['middleware' => 'cors'], function () {
+    Route::get('times', 'Api\TimesController@index');
+});
 
