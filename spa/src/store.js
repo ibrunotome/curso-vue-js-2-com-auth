@@ -32,6 +32,7 @@ const actions = {
     'login'(context, {email, password}) {
         Vue.http.post('http://localhost:8000/api/login', {email, password}).then((response) => {
            console.log(response.data.token);
+
         });
     }
 };
