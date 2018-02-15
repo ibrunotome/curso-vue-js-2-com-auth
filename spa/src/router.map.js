@@ -7,21 +7,25 @@ export default [
     {
         name: 'auth.login',
         path: '/login',
-        component: LoginComponent
+        component: LoginComponent,
+        meta: {auth: false}
     },
     {
         name: 'time.list',
         path: '/times',
-        component: TimeListComponent
+        component: TimeListComponent,
+        meta: {auth: true}
     },
     {
         name: 'time.jogo',
         path: '/times/jogo',
-        component: TimeJogoComponent
+        component: TimeJogoComponent,
+        meta: {auth: true}
     },
     {
         name: 'time.zona',
         path: '/times/zona',
-        component: TimeZonaComponent
+        component: TimeZonaComponent,
+        meta: {auth: true}
     },
 ]

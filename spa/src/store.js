@@ -20,8 +20,8 @@ const mutations = {
         state.times = times;
     },
     update(state, time) {
-        let index = state.times.findIndex(element => time.id === element.id);
-        if (index !== -1) {
+        let index = state.times.findIndex(element => time.id == element.id);
+        if (index != -1) {
             state.times[index] = time;
         }
     },

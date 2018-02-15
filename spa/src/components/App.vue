@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row">
+        <div class="row" v-if="isAuth">
             <div class="col-md-12">
                 <h3>Campeonato brasileiro série A - 2016</h3>
                 <h6>Olá {{ user.name }}</h6>
@@ -25,6 +25,9 @@
 
     export default {
         computed: {
+            isAuth() {
+                return store.state.auth.check;
+            },
             user() {
                 return store.state.auth.user ? store.state.auth.user : {'name': ''};
             }
