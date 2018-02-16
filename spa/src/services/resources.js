@@ -11,6 +11,10 @@ export class Jwt {
             password
         });
     }
+    
+    static refreshToken() {
+        return Vue.http.post('http://localhost:8000/api/refresh_token');
+    }
 }
 
 const Time = Vue.resource('http://localhost:8000/api/times');
